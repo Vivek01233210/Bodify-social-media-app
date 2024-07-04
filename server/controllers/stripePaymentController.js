@@ -92,7 +92,9 @@ export const verifyPayment = asyncHandler(async (req, res) => {
     // update the user profile
     if (newPayment) {
         userFound.hasSelectedPlan = true;
+        userFound.accountType = "Premium";
         userFound.plan = subscriptionPlanId;
+        userFound.payments.push(newPayment._id);
         await userFound.save();
     }
 

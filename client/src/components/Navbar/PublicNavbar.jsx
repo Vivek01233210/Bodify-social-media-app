@@ -70,7 +70,13 @@ export default function PublicNavbar() {
 
           {/* login button */}
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex gap-2">
+              <Link
+                to="/register"
+                className="relative inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 active:bg-orange-700"
+              >
+                Register
+              </Link>
               <Link
                 to="/login"
                 className="relative inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 active:bg-orange-700"

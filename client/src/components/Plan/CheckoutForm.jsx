@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import AlertMessage from "../Alert/AlertMessage";
 import { paymentIntentAPI } from "../../APIServices/stripeAPI";
+import testCard from "../../assets/test-card.png";
 
 const CheckoutForm = () => {
     const [errorMessage, setErrorMessage] = useState(null);
@@ -56,7 +57,7 @@ const CheckoutForm = () => {
     };
 
     return (
-        <div className="bg-gray-100 mt-12 h-screen flex justify-center items-center">
+        <div className="bg-gray-100 mt-16 flex flex-col justify-center items-center">
             <form
                 onSubmit={handleSubmit}
                 className="w-96 mx-auto my-4 p-6 bg-white rounded-lg shadow-md"
@@ -82,6 +83,10 @@ const CheckoutForm = () => {
                     <div className="text-red-500 mt-4">{errorMessage}</div>
                 )}
             </form>
+            <div className="mb-8">
+                <h3 className="text-xl font-semibold text-center">Test Card</h3>
+                <img src={testCard} alt="test-card" className="w-64 md:w-72" />
+            </div>
         </div>
     );
 };

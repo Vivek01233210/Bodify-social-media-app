@@ -14,7 +14,7 @@ const CallToAction = () => {
             <FaLightbulb className="text-orange-500" size="68" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-center max-w-lg lg:max-w-2xl mx-auto">
-            Discover Fun and Exciting Knowledge
+            Discover, Share, and Bond Over Code
           </h1>
           <p className="text-gray-500 text-center mb-10">
             Embark on an exciting learning adventure together - Join now!

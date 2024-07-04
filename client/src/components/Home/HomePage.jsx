@@ -15,13 +15,11 @@ const HomePage = () => {
       <div className="container px-4 mx-auto relative">
         <div className="relative z-20">
           <h1 className="text-center text-5xl lg:text-7xl font-bold font-heading mb-6 mt-14 max-w-2xl mx-auto">
-            <span>Explore the Power of</span>
-            <span className="block text-orange-600">Shared Wisdom</span>
+            <span>Build Bonds Through </span>
+            <span className="block text-orange-600 text-4xl lg:text-6xl">&ldquo;Code and Community&rdquo;</span>
           </h1>
           <p className="text-center text-lg mb-10 max-w-lg mx-auto">
-            Embark on a journey of discovery and growth. Connect, collaborate,
-            and create with a global network of enthusiastic learners and
-            thinkers.
+            Bondify is a social media platform for coding enthusiasts to share and discover posts about programming. Connect with like-minded developers, showcase projects.
           </p>
           {!userAuth &&
             <div className="flex justify-center lg:pb-56">
