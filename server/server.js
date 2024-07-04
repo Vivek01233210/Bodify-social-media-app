@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
 import cron from "node-cron";
 import { connectDB } from './utils/connectDB.js';
 import postRouter from './routes/postRoutes.js';
@@ -39,12 +41,28 @@ cron.schedule(
 );
 
 // MIDDLEWARES
+const corsOptions = {
+    // origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+        // Check if the origin is allowed
+        const allowedOrigins = [
+            "http://localhost:5173",
+            "http://localhost:4173",
+            "http://bondifybyvivek.online",
+            "http://www.bondifybyvivek.online",
+        ];
+        const isAllowed = allowedOrigins.includes(origin);
+        callback(null, isAllowed ? origin : false);
+    },
+    methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+    credentials: true,
+};
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({
-    origin: ["http://localhost:5173"],
-    credentials: true  // usefull during cookie setting
-}));
 app.use(cookieParser());
+app.use(helmet());
+app.use(mongoSanitize());
 // app.use(morgan('dev'));
 
 // passport middleware

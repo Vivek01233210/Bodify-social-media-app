@@ -1,11 +1,11 @@
 {
-  "name": "blog-backend",
+  "name": "bondify-app-backend",
   "version": "1.0.0",
   "description": "This is the api for the backend",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd ../client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
