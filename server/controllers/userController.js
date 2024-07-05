@@ -79,7 +79,8 @@ export const googleAuthCallback = asyncHandler(async (req, res, next) => {
     (err, user, info) => {
       if (err) return next(err);
       if (!user) {
-        return res.redirect("http://localhost:5173/google-login-error");
+        // return res.redirect(`http://localhost:5173/google-login-error`);
+        return res.redirect(`${process.env.BONDIFY_APP_URL}/google-login-error`);
       }
 
       //generate the token
@@ -87,7 +88,7 @@ export const googleAuthCallback = asyncHandler(async (req, res, next) => {
         expiresIn: "3d",
       });
 
-      //set the token into the cooke
+      //set the token into the cookie
       res.cookie("token", token, {
         httpOnly: true,
         secure: false,
@@ -96,7 +97,8 @@ export const googleAuthCallback = asyncHandler(async (req, res, next) => {
       });
 
       //redirect the user dashboard
-      res.redirect("http://localhost:5173/dashboard");
+      // res.redirect("http://localhost:5173/dashboard");
+      res.redirect(`${process.env.BONDIFY_APP_URL}/dashboard`);
     }
   )(req, res, next);  // IIFE
 });
@@ -405,8 +407,8 @@ export const unblockUser = asyncHandler(async (req, res) => {
 export const listUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
 
-  res.status(200).json({ 
+  res.status(200).json({
     results: users.length,
     users
-   });
+  });
 });

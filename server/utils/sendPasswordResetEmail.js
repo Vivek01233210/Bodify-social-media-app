@@ -19,7 +19,7 @@ export const sendPasswordResetEmail = async (to, token) => {
             html: `
         <p>Please click on the following link, or paste this into your browser to complete the process:
         </p>
-        <p>http://localhost:5173/reset-password/${token}</p>
+        <p>${process.env.BONDIFY_APP_URL}/reset-password/${token}</p>
         <p>If you did not request this, please ignore this email and your   password will remain unchanged.
         </p>
         `,
